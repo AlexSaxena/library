@@ -28,9 +28,9 @@ Psudo
            Will need Button on Card to remove said Book/Card (Need to associate with correct card <-> Book)
                       
 */
-//let test = new Book('Tolkien', 'Lotr', 132, true)
 
 let btnAddbook = document.getElementById("btn-add-book");
+let cardContainer = document.querySelector(".container-cards");
 
 // Library Array
 let myLibrary = [];
@@ -55,4 +55,21 @@ function Book(Author, Title, Pages, isRead) {
 function addBook(Author, Title, Pages, isRead = false) {
   const newBook = new Book(Author, Title, Pages, isRead);
   myLibrary.push(newBook);
+}
+
+function showBooks() {
+  myLibrary.forEach((book) => {
+    //Function call to build Card
+    //createCard(book);
+  });
+}
+
+// Function for generating a book Card
+// Adds book object as param. book.author etc
+function createCard() {
+  let newDiv = document.createElement("div");
+  newDiv.classList.add("card-book");
+  newDiv.innerText = "test";
+
+  cardContainer.appendChild(newDiv);
 }
