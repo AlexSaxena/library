@@ -17,7 +17,7 @@ Psudo
            Structure the page in minimum 2 parts
            Header Section & Content / Card Section
 
-           JS - Using Objects and prototypes 
+           JS - Using Objects
            Book Object and Constructor for creating a Book
            All books will be stored in an Array
            Will need a Function to add book to array
@@ -28,3 +28,31 @@ Psudo
            Will need Button on Card to remove said Book/Card (Need to associate with correct card <-> Book)
                       
 */
+//let test = new Book('Tolkien', 'Lotr', 132, true)
+
+let btnAddbook = document.getElementById("btn-add-book");
+
+// Library Array
+let myLibrary = [];
+
+// Book Constructor
+function Book(Author, Title, Pages, isRead) {
+  this.Author = Author;
+  this.Title = Title;
+  this.Pages = Pages;
+  //this.isRead =
+  if (isRead == true) {
+    this.isRead = "Already Read";
+  } else {
+    this.isRead = "Not Read Yet";
+  }
+  this.info = () => {
+    return `Author: ${Author} Title: ${Title} Nr of Pages: ${Pages} Status: ${this.isRead}!`;
+  };
+}
+
+// Function for adding Book to Library Array
+function addBook(Author, Title, Pages, isRead = false) {
+  const newBook = new Book(Author, Title, Pages, isRead);
+  myLibrary.push(newBook);
+}
