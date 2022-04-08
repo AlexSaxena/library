@@ -17,10 +17,19 @@ main {
   border: solid red 1px;
   flex: auto;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 .container-btn-add-book {
   margin: 1rem;
+  align-self: center;
+  border: solid green 1px;
+}
+.container-cards {
+  border: solid blue 1px;
+  flex: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 footer {
   min-height: 5rem;
