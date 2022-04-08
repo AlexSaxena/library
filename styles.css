@@ -16,6 +16,11 @@ header {
 main {
   border: solid red 1px;
   flex: auto;
+  display: flex;
+  justify-content: center;
+}
+.container-btn-add-book {
+  margin: 1rem;
 }
 footer {
   min-height: 5rem;
