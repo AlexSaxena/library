@@ -13,6 +13,9 @@ header {
   min-height: 5rem;
   background-color: #ccc;
 }
+h1 {
+  text-decoration: underline;
+}
 main {
   border: solid red 1px;
   flex: auto;
@@ -28,7 +31,7 @@ main {
   border: solid blue 1px;
   flex: auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 footer {
@@ -37,6 +40,6 @@ footer {
   background-color: black;
 }
 
-h1 {
-  text-decoration: underline;
+.card-book {
+  border: solid orange 2px;
 }
