@@ -30,9 +30,11 @@ main {
 .container-cards {
   border: solid blue 1px;
   flex: auto;
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(150px, 250px));
+  gap: 2em;
 }
 footer {
   min-height: 5rem;
@@ -42,4 +44,18 @@ footer {
 
 .card-book {
   border: solid orange 2px;
+  border-radius: 8%;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+}
+.card-inner-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 1rem;
+}
+.card-inner-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
