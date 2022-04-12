@@ -35,6 +35,15 @@ main {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   grid-template-rows: repeat(auto-fit, minmax(150px, 250px));
   gap: 2em;
+
+  /* 
+    Flex Variation | Might be better
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:2rem;
+  */
 }
 footer {
   min-height: 5rem;
@@ -47,6 +56,11 @@ footer {
   border-radius: 8%;
   display: grid;
   grid-template-rows: 3fr 1fr;
+
+  /* Flex Variation
+    height: 250px;
+    width: 300px;
+  */
 }
 .card-inner-top {
   display: flex;
