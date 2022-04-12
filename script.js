@@ -40,7 +40,6 @@ function Book(Author, Title, Pages, isRead) {
   this.Author = Author;
   this.Title = Title;
   this.Pages = Pages;
-  //this.isRead =
   if (isRead == true) {
     this.isRead = "Already Read";
   } else {
@@ -60,8 +59,8 @@ function addBook(Author, Title, Pages, isRead = false) {
 
 function showBooks() {
   myLibrary.forEach((book) => {
+    //createCard(book.Author, book.Title, book.Pages, book.isRead);
     //Function call to build Card
-    //createCard(book);
   });
 }
 
@@ -71,7 +70,6 @@ function createCard(Author, Title, Pages, isRead) {
   let cardDiv = document.createElement("div");
   let cardDivUpper = document.createElement("div");
   let cardDivLower = document.createElement("div");
-  //let span = document.createElement("span");
 
   cardDiv.classList.add("card-book");
   cardDivUpper.classList.add("card-inner-top");
@@ -94,59 +92,6 @@ function createCard(Author, Title, Pages, isRead) {
 
   cardDivUpper.append(authorSpan, titleSpan, pagesSpan, isReadSpan);
   cardDivLower.append(toggleSpan);
-
-  // let newTextNode = document.createTextNode();
-
-  // let spanAuthor = (span.innerHTML = `Author: ${Author}`);
-  // let spanTitle = (span.innerHTML = `Title: ${Title}`);
-  // let spanPages = (span.innerHTML = `Pages: ${Pages}`);
-  // let spanIsRead = (span.innerHTML = `Read: ${isRead}`);
-
-  // let nodeAuthor = document.createTextNode(`Author: ${Author}`);
-  // let spanAuthor = span;
-  // spanAuthor.appendChild(nodeAuthor);
-
-  // let nodeTitle = document.createTextNode(`Title: ${Title}`);
-  // let spanTitle = span;
-  // spanTitle.appendChild(nodeTitle);
-
-  // let nodePages = document.createTextNode(`Pages: ${Pages}`);
-  // let spanPages = span;
-  // spanPages.appendChild(nodePages);
-
-  // let nodeIsRead = document.createTextNode(`Read: ${isRead}`);
-  // let spanIsRead = span;
-  // spanIsRead.appendChild(nodeIsRead);
-
-  // let spanToggle = (span.textContent = "Toggle Soon");
-
-  // let nodeToggle = document.createTextNode(`Toggle Soon`);
-  // let spanToggle = span;
-  // spanToggle.appendChild(nodeToggle);
-  // Toggle button / or similar
-
-  // cardDivUpper.appendChild(spanAuthor);
-  // cardDivUpper.appendChild(spanTitle);
-  // cardDivUpper.appendChild(spanPages);
-  // cardDivUpper.appendChild(spanIsRead);
-  // cardDiv.appendChild(cardDivUpper);
-
-  // cardDivLower.appendChild(spanToggle);
-  // cardDiv.appendChild(cardDivLower);
   cardDiv.append(cardDivUpper, cardDivLower);
   cardContainer.appendChild(cardDiv);
 }
-
-/*
-  <div class="card-book">
-    <div class="card-inner-top">
-      <span>Title</span>
-      <span>Author</span>
-      <span>Pages</span>
-      <span>Status</span>
-    </div>
-    <div class="card-inner-bottom">
-      <span>Toggle-bar</span>
-    </div>
-  </div>
-*/
