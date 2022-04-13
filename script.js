@@ -53,15 +53,25 @@ function Book(Author, Title, Pages, isRead) {
 // Function for adding Book to Library Array
 function addBook(Author, Title, Pages, isRead = false) {
   const newBook = new Book(Author, Title, Pages, isRead);
-  createCard(newBook.Author, newBook.Title, newBook.Pages, newBook.isRead); // Wrong place
+  //createCard(newBook.Author, newBook.Title, newBook.Pages, newBook.isRead); // Wrong place
   myLibrary.push(newBook);
+  showBooks();
 }
 
 function showBooks() {
+  clearBookContainer();
+
   myLibrary.forEach((book) => {
-    //createCard(book.Author, book.Title, book.Pages, book.isRead);
     //Function call to build Card
+    createCard(book.Author, book.Title, book.Pages, book.isRead);
   });
+}
+
+function clearBookContainer() {
+  let bookContainer = document.querySelector(".container-cards");
+  while (bookContainer.firstChild) {
+    bookContainer.removeChild(bookContainer.firstChild);
+  }
 }
 
 // Function for generating a book Card
