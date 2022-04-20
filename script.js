@@ -29,7 +29,7 @@ Psudo
                       
 */
 
-let btnAddbook = document.getElementById("btn-add-book");
+let btnFormAddBook = document.querySelector(".add-book-btn");
 let cardContainer = document.querySelector(".container-cards");
 
 // Library Array
@@ -73,6 +73,18 @@ function clearBookContainer() {
     bookContainer.removeChild(bookContainer.firstChild);
   }
 }
+
+btnFormAddBook.addEventListener("click", () => {
+  let formAuthor = document.getElementById("author").value;
+  let formTitle = document.getElementById("title").value;
+  let formPages = document.getElementById("pages").value;
+  let formStatus = document.querySelector('input[name="status"]:checked').value;
+
+  console.log(formTitle);
+  console.log(formAuthor);
+  console.log(formPages);
+  console.log(formStatus);
+});
 
 // Function for generating a book Card
 // Adds book object as param. book.author etc
