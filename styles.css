@@ -78,6 +78,7 @@ footer {
 }
 .card-inner-bottom {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -124,4 +125,21 @@ footer {
 .red {
   background-color: #d70101;
   margin-top: 0px;
+}
+
+.btn-remove-book {
+  padding: 12px;
+  font-size: 1em;
+  border: none;
+  background-color: brown;
+  color: #fff;
+  cursor: pointer;
+  width: 80%;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  border-radius: 10px;
+}
+.btn-remove-book:hover {
+  background-color: red;
+  transition: 0.4s;
 }
