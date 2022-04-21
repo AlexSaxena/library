@@ -135,11 +135,16 @@ footer {
   color: #fff;
   cursor: pointer;
   width: 80%;
-  margin-top: 1em;
   margin-bottom: 0.5em;
   border-radius: 10px;
 }
 .btn-remove-book:hover {
   background-color: red;
   transition: 0.4s;
+}
+.orange {
+  background-color: #f87217;
+}
+.orange:hover {
+  background-color: #ff3f00;
 }
