@@ -31,6 +31,8 @@ Psudo
 
 let btnFormAddBook = document.querySelector(".add-book-btn");
 let cardContainer = document.querySelector(".container-cards");
+let btnAddBook = document.getElementById("btn-add-book");
+let btnCloseForm = document.getElementById("btn-close-form");
 
 // Library Array
 let myLibrary = [];
@@ -73,6 +75,19 @@ function clearBookContainer() {
     bookContainer.removeChild(bookContainer.firstChild);
   }
 }
+
+function openForm() {
+  document.getElementById("newBookForm").style.display = "block";
+  document.getElementById("author").value = "";
+  document.getElementById("title").value = "";
+  document.getElementById("pages").value = 0;
+}
+function closeForm() {
+  document.getElementById("newBookForm").style.display = "none";
+}
+
+btnAddBook.addEventListener("click", openForm);
+btnCloseForm.addEventListener("click", closeForm);
 
 btnFormAddBook.addEventListener("click", () => {
   let formAuthor = document.getElementById("author").value;
