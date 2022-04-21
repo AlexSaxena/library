@@ -33,12 +33,14 @@ let btnFormAddBook = document.querySelector(".add-book-btn");
 let cardContainer = document.querySelector(".container-cards");
 let btnAddBook = document.getElementById("btn-add-book");
 let btnCloseForm = document.getElementById("btn-close-form");
+let id = 0;
 
 // Library Array
 let myLibrary = [];
 
 // Book Constructor
-function Book(Author, Title, Pages, isRead) {
+function Book(Author, Title, Pages, isRead, Id) {
+  this.Id = Id;
   this.Author = Author;
   this.Title = Title;
   this.Pages = Pages;
@@ -54,7 +56,8 @@ function Book(Author, Title, Pages, isRead) {
 
 // Function for adding Book to Library Array
 function addBook(Author, Title, Pages, isRead = "true") {
-  const newBook = new Book(Author, Title, Pages, isRead);
+  let Id = id++;
+  const newBook = new Book(Author, Title, Pages, isRead, Id);
   // console.log("addBook func ->" + isRead);
   //createCard(newBook.Author, newBook.Title, newBook.Pages, newBook.isRead); // Wrong place
   myLibrary.push(newBook);
@@ -66,7 +69,7 @@ function showBooks() {
 
   myLibrary.forEach((book) => {
     //Function call to build Card
-    createCard(book.Author, book.Title, book.Pages, book.isRead);
+    createCard(book.Author, book.Title, book.Pages, book.isRead, book.Id);
   });
 }
 
@@ -106,10 +109,11 @@ btnFormAddBook.addEventListener("click", () => {
 
 // Function for generating a book Card
 // Adds book object as param. book.author etc
-function createCard(Author, Title, Pages, isRead) {
+function createCard(Author, Title, Pages, isRead, Id) {
   let cardDiv = document.createElement("div");
   let cardDivUpper = document.createElement("div");
   let cardDivLower = document.createElement("div");
+  let deleteBtn = document.createElement("button");
 
   cardDiv.classList.add("card-book");
   cardDivUpper.classList.add("card-inner-top");
@@ -130,8 +134,22 @@ function createCard(Author, Title, Pages, isRead) {
   let toggleSpan = document.createElement("span");
   toggleSpan.textContent = "Toggle Soon";
 
+  deleteBtn.innerText = "Remove Book!";
+  deleteBtn.setAttribute("onclick", "removeBook(" + Id + ")");
+  deleteBtn.classList.add("btn-remove-book");
+
   cardDivUpper.append(authorSpan, titleSpan, pagesSpan, isReadSpan);
-  cardDivLower.append(toggleSpan);
+  cardDivLower.append(toggleSpan, deleteBtn);
   cardDiv.append(cardDivUpper, cardDivLower);
   cardContainer.appendChild(cardDiv);
+}
+
+function removeBook(bookId) {
+  let removeIndex = myLibrary
+    .map(function (books) {
+      return books.Id;
+    })
+    .indexOf(bookId);
+  myLibrary.splice(removeIndex, 1);
+  showBooks();
 }
