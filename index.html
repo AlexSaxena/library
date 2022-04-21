@@ -14,11 +14,8 @@
     </header>
     <main>
       <div class="container-btn-add-book">
-        <!-- <button id="btn-add-book">Add New Book!</button> -->
-        <button id="btn-add-book" onclick="openForm()">Add Book</button>
+        <button id="btn-add-book">Add Book</button>
       </div>
-      <!-- Test Form -->
-
       <div class="formPopup" id="newBookForm">
         <form action="#" class="new-book-form">
           <h2>New Book!</h2>
@@ -44,16 +41,14 @@
           <br />
           <label for="radio-false">Not Yet Read!</label>
           <input type="radio" name="status" id="radio-false" value="false" />
-
           <button type="button" class="form-button add-book-btn">
             Add New Book
           </button>
-          <button type="button" class="form-button red" onclick="closeForm()">
+          <button type="button" id="btn-close-form" class="form-button red">
             Close Form
           </button>
         </form>
       </div>
-      <!-- test Form-->
       <div class="container-cards">
         <div class="card-book">
           <div class="card-inner-top">
@@ -82,14 +77,5 @@
     <footer>
       <span>Footer</span>
     </footer>
-    <!-- test Form -->
-    <script>
-      function openForm() {
-        document.getElementById("newBookForm").style.display = "block";
-      }
-      function closeForm() {
-        document.getElementById("newBookForm").style.display = "none";
-      }
-    </script>
   </body>
 </html>
