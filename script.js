@@ -114,6 +114,7 @@ function createCard(Author, Title, Pages, isRead, Id) {
   let cardDivUpper = document.createElement("div");
   let cardDivLower = document.createElement("div");
   let deleteBtn = document.createElement("button");
+  let toggleButton = document.createElement("button");
 
   cardDiv.classList.add("card-book");
   cardDivUpper.classList.add("card-inner-top");
@@ -131,15 +132,16 @@ function createCard(Author, Title, Pages, isRead, Id) {
   let isReadSpan = document.createElement("span");
   isReadSpan.textContent = `Status: ${isRead}`;
 
-  let toggleSpan = document.createElement("span");
-  toggleSpan.textContent = "Toggle Soon";
+  toggleButton.textContent = "Change Read Status";
+  toggleButton.setAttribute("onclick", "updateStatus(" + Id + ")");
+  toggleButton.classList.add("btn-remove-book", "orange");
 
   deleteBtn.innerText = "Remove Book!";
   deleteBtn.setAttribute("onclick", "removeBook(" + Id + ")");
   deleteBtn.classList.add("btn-remove-book");
 
   cardDivUpper.append(authorSpan, titleSpan, pagesSpan, isReadSpan);
-  cardDivLower.append(toggleSpan, deleteBtn);
+  cardDivLower.append(toggleButton, deleteBtn);
   cardDiv.append(cardDivUpper, cardDivLower);
   cardContainer.appendChild(cardDiv);
 }
@@ -152,4 +154,19 @@ function removeBook(bookId) {
     .indexOf(bookId);
   myLibrary.splice(removeIndex, 1);
   showBooks();
+}
+
+function updateStatus(bookId) {
+  let changeIndex = myLibrary
+    .map(function (books) {
+      return books.Id;
+    })
+    .indexOf(bookId);
+  if (myLibrary[changeIndex].isRead == "Already Read") {
+    myLibrary[changeIndex].isRead = "Not Read Yet";
+    showBooks();
+  } else {
+    myLibrary[changeIndex].isRead = "Already Read";
+    showBooks();
+  }
 }
