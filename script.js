@@ -42,7 +42,7 @@ function Book(Author, Title, Pages, isRead) {
   this.Author = Author;
   this.Title = Title;
   this.Pages = Pages;
-  if (isRead == true) {
+  if (isRead == "true") {
     this.isRead = "Already Read";
   } else {
     this.isRead = "Not Read Yet";
@@ -53,8 +53,9 @@ function Book(Author, Title, Pages, isRead) {
 }
 
 // Function for adding Book to Library Array
-function addBook(Author, Title, Pages, isRead = false) {
+function addBook(Author, Title, Pages, isRead = "true") {
   const newBook = new Book(Author, Title, Pages, isRead);
+  // console.log("addBook func ->" + isRead);
   //createCard(newBook.Author, newBook.Title, newBook.Pages, newBook.isRead); // Wrong place
   myLibrary.push(newBook);
   showBooks();
@@ -78,12 +79,16 @@ function clearBookContainer() {
 
 function openForm() {
   document.getElementById("newBookForm").style.display = "block";
-  document.getElementById("author").value = "";
-  document.getElementById("title").value = "";
-  document.getElementById("pages").value = 0;
 }
 function closeForm() {
   document.getElementById("newBookForm").style.display = "none";
+  clearForm();
+}
+function clearForm() {
+  document.getElementById("author").value = "";
+  document.getElementById("title").value = "";
+  document.getElementById("pages").value = 0;
+  document.querySelector('input[name="status"]:checked').checked = false;
 }
 
 btnAddBook.addEventListener("click", openForm);
@@ -95,10 +100,8 @@ btnFormAddBook.addEventListener("click", () => {
   let formPages = document.getElementById("pages").value;
   let formStatus = document.querySelector('input[name="status"]:checked').value;
 
-  console.log(formTitle);
-  console.log(formAuthor);
-  console.log(formPages);
-  console.log(formStatus);
+  addBook(formAuthor, formTitle, formPages, formStatus);
+  clearForm();
 });
 
 // Function for generating a book Card
