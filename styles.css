@@ -35,7 +35,7 @@ main {
 }
 #btn-add-book {
   border: none;
-  font-size: 1em;
+  font-size: 1.5em;
   border-radius: 5px;
   color: white;
   background: orange;
@@ -49,15 +49,6 @@ main {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   grid-template-rows: repeat(auto-fit, minmax(150px, 250px));
   gap: 2em;
-
-  /* 
-    Flex Variation | Might be better
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap:2rem;
-  */
 }
 .card-book {
   border: solid orange 5px;
@@ -65,11 +56,6 @@ main {
   border-radius: 8%;
   display: grid;
   grid-template-rows: 3fr 1fr;
-
-  /* Flex Variation
-    height: 250px;
-    width: 300px;
-  */
 }
 .card-inner-top {
   display: flex;
@@ -83,7 +69,6 @@ main {
   justify-content: center;
   align-items: center;
 }
-
 .formPopup {
   display: none;
   position: fixed;
@@ -127,7 +112,6 @@ main {
   background-color: #d70101;
   margin-top: 0px;
 }
-
 .btn-remove-book {
   padding: 12px;
   font-size: 1em;
@@ -149,7 +133,6 @@ main {
 .orange:hover {
   background-color: #ff3f00;
 }
-
 footer {
   min-height: 5rem;
   color: white;
